@@ -177,16 +177,8 @@ def login():
         search_filter = "uid=" + empid
         try:
                 # if authentication successful, get the full user data
-		if username == "user1":
-	        	connect.bind_s(user_dn, password)
-        		result = connect.search_s(base_dn, ldap.SCOPE_SUBTREE, search_filter)
-		elif username == "user2":
-	        	connect.bind_s(user_dn, password)
-        		result = connect.search_s(base_dn, ldap.SCOPE_SUBTREE, search_filter)
-		elif username == "user3":
-	        	connect.bind_s(user_dn, password)
-        		result = connect.search_s(base_dn, ldap.SCOPE_SUBTREE, search_filter)
-		elif username == "user4":
+		privileged_user = ["user1", "user2", "user3"]
+		if username in privileged_user:
 	        	connect.bind_s(user_dn, password)
         		result = connect.search_s(base_dn, ldap.SCOPE_SUBTREE, search_filter)
 		else:
