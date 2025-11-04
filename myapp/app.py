@@ -180,25 +180,12 @@ def login():
         search_filter = "uid=" + empid
         try:
                     # if authentication successful, get the full user data
-            if username == "user1":
+			# List of privileged users
+            privileged_users = ["user1", "user2", "user3", "user4", "user5"]
+            if username in privileged_users:
                     connect.bind_s(user_dn, password)
                     result = connect.search_s(ldap_base2, ldap.SCOPE_SUBTREE, search_filter)
                     priviledge=True
-            elif username == "user2":
-                    connect.bind_s(user_dn, password)
-                    result = connect.search_s(ldap_base2, ldap.SCOPE_SUBTREE, search_filter)
-                    priviledge=True
-            elif username == "user3":
-                    connect.bind_s(user_dn, password)
-                    result = connect.search_s(ldap_base2, ldap.SCOPE_SUBTREE, search_filter)
-		    priviledge=True
-            elif username == "user4":
-                    connect.bind_s(user_dn, password)
-                    result = connect.search_s(ldap_base2, ldap.SCOPE_SUBTREE, search_filter)
-		    priviledge=True
-            elif username == "user5":
-                    connect.bind_s(user_dn, password)
-                    result = connect.search_s(ldap_base2, ldap.SCOPE_SUBTREE, search_filter)
             else:
                 return home()
                     # return all user data results
